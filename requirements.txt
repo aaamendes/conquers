@@ -1,0 +1,5 @@
+netmiko
+pycryptodome
+cryptography
+colorama
+psutil

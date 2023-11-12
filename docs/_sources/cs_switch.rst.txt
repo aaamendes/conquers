@@ -1,0 +1,7 @@
+cs\_switch module
+=================
+
+.. automodule:: cs_switch
+   :members:
+   :undoc-members:
+   :show-inheritance:

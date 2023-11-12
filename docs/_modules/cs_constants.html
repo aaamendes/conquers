@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cs_constants &mdash; conquer-s 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            conquer-s
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">conquer-s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conquer-s</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cs_constants</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cs_constants</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<div class="viewcode-block" id="Constants">
+<a class="viewcode-back" href="../cs_constants.html#cs_constants.Constants">[docs]</a>
+<span class="k">class</span> <span class="nc">Constants</span><span class="p">:</span>
+    <span class="n">VERSION</span> <span class="o">=</span> <span class="s2">&quot;conquer-s v0.1&quot;</span>
+    <span class="n">CHOME</span> <span class="o">=</span> <span class="s2">&quot;~/.conquer_s/&quot;</span>
+    <span class="n">CHOME_ABS_PATH</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">DEFAULT_CONFIG</span> <span class="o">=</span> <span class="s2">&quot;config.yaml&quot;</span>
+    <span class="n">SOCKET_FILE</span> <span class="o">=</span> <span class="s2">&quot;/tmp/conquer_s.socket&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    UNIX socket for IPC.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">BUFF_SIZE</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Buffer size for reading from</span>
+<span class="sd">    :py:class:`~cs_constants.Constants.SOCKET_FILE`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">HTML_TOP</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;!doctype html&gt;</span>
+<span class="s1">&lt;html lang=&quot;en&quot;&gt;</span>
+<span class="s1">  &lt;head&gt;</span>
+<span class="s1">    &lt;meta charset=&quot;utf-8&quot;&gt;</span>
+<span class="s1">    &lt;!--&lt;link rel=&quot;stylesheet&quot; href=&quot;css/main.css&quot;&gt;--&gt;</span>
+<span class="s1">    &lt;title&gt;conquer-s report&lt;/title&gt;</span>
+<span class="s1">&lt;style&gt;</span>
+<span class="s1">* { </span>
+<span class="s1">  box-sizing: border-box;</span>
+<span class="s1">}</span>
+
+<span class="s1">html,body {</span>
+<span class="s1">  font-family: sans-serif;</span>
+<span class="s1">  background: rgba(20,20,20,1);</span>
+<span class="s1">  color: #8e8e8e;</span>
+<span class="s1">  padding: 0;</span>
+<span class="s1">  margin: 0;</span>
+<span class="s1">  font-size: 12px;</span>
+<span class="s1">}</span>
+
+<span class="s1">h1,h2,h3 {</span>
+<span class="s1">}</span>
+
+<span class="s1">a {</span>
+<span class="s1">  text-decoration: none;</span>
+<span class="s1">  color: #bbb;</span>
+<span class="s1">  font-size: 1rem;</span>
+<span class="s1">}</span>
+
+<span class="s1">.wrapper {</span>
+<span class="s1">  position: relative;</span>
+<span class="s1">  max-width: 1440px;</span>
+<span class="s1">  margin-left: auto;</span>
+<span class="s1">  margin-right: auto;</span>
+<span class="s1">}</span>
+
+<span class="s1">nav.navigation {</span>
+<span class="s1">  display: flex;</span>
+<span class="s1">  align-items: center;</span>
+<span class="s1">  justify-content: space-between;</span>
+<span class="s1">  width: 100%;</span>
+<span class="s1">  height: 5rem;</span>
+<span class="s1">  background: rgba(10,10,10, 1);</span>
+<span class="s1">}</span>
+
+<span class="s1">.navigation ul {</span>
+<span class="s1">  list-style: none;</span>
+<span class="s1">  display: flex;</span>
+<span class="s1">  flex-direction: row;</span>
+<span class="s1">  justify-content: flex-end;</span>
+<span class="s1">  align-items: center;</span>
+<span class="s1">  justify-self: flex-end;</span>
+<span class="s1">  width: 233px;</span>
+<span class="s1">}</span>
+<span class="s1">.navigation ul li {</span>
+<span class="s1">  margin-right: 2rem;</span>
+<span class="s1">}</span>
+
+<span class="s1">.navigation ul a {</span>
+<span class="s1">  border-bottom: 1px dotted;</span>
+<span class="s1">}</span>
+
+<span class="s1">.left-nav, .right-nav {</span>
+<span class="s1">  display: flex;</span>
+<span class="s1">  align-items: center;</span>
+<span class="s1">  flex-direction: row;</span>
+<span class="s1">}</span>
+<span class="s1">.left-nav {</span>
+<span class="s1">}</span>
+
+<span class="s1">.logo {</span>
+<span class="s1">  height: 4rem;</span>
+<span class="s1">  width: 4rem;</span>
+<span class="s1">  display: flex;</span>
+<span class="s1">  align-items: center;</span>
+<span class="s1">  justify-self: flex-start;</span>
+<span class="s1">  color: #efefef;</span>
+<span class="s1">  font-size: 3rem;</span>
+<span class="s1">  margin-left: 2rem;</span>
+<span class="s1">}</span>
+
+<span class="s1">.search-box {</span>
+<span class="s1">  height: 2rem;</span>
+<span class="s1">  color: #333;</span>
+<span class="s1">  display: flex;</span>
+<span class="s1">  align-items: center;</span>
+<span class="s1">  margin-left: 2rem;</span>
+<span class="s1">}</span>
+<span class="s1">.search-box::before {</span>
+<span class="s1">  content: &quot;🔎&quot;;</span>
+<span class="s1">  position: absolute;</span>
+<span class="s1">  height: 2rem;</span>
+<span class="s1">  display: flex;</span>
+<span class="s1">  align-items: center;</span>
+<span class="s1">  font-size: 1.2rem;</span>
+<span class="s1">  margin-left: 1rem;</span>
+<span class="s1">  z-index: 2;</span>
+<span class="s1">}</span>
+<span class="s1">.search-box input {</span>
+<span class="s1">  position: relative;</span>
+<span class="s1">  width: 15rem;</span>
+<span class="s1">  padding-left: 2rem;</span>
+<span class="s1">  z-index: 1;</span>
+<span class="s1">  padding: 0.5rem 0.5rem 0.5rem 3rem;</span>
+<span class="s1">  border-radius: 2rem;</span>
+<span class="s1">  border: 0;</span>
+<span class="s1">  background: rgba(30,30,30,1);</span>
+<span class="s1">  color: #aaa;</span>
+<span class="s1">  font-style: italic;</span>
+<span class="s1">  transition: width .3s;</span>
+<span class="s1">}</span>
+
+<span class="s1">.main {</span>
+<span class="s1">  display: flex;</span>
+<span class="s1">  flex-direction: row</span>
+<span class="s1">}</span>
+
+<span class="s1">.hosts-nav-wrapper {</span>
+<span class="s1">  background: rgba(10,10,10, 1);</span>
+<span class="s1">  height: calc(100vh - 5rem);</span>
+<span class="s1">  padding: 0 1rem;</span>
+<span class="s1">}</span>
+<span class="s1">.host-content-wrapper {</span>
+<span class="s1">  padding: 0 1rem;</span>
+<span class="s1">  width: 100%;</span>
+<span class="s1">  background: rgba(10,10,10, 1);</span>
+<span class="s1">  height: calc(100vh - 5rem);</span>
+<span class="s1">}</span>
+<span class="s1">.hosts-nav-content {</span>
+<span class="s1">  min-width: 18rem;</span>
+<span class="s1">  max-width: 26rem;</span>
+<span class="s1">  white-space: nowrap;</span>
+<span class="s1">}</span>
+
+<span class="s1">.hosts-nav-content, .host-content {</span>
+<span class="s1">  overflow: auto;</span>
+<span class="s1">  height: calc(100vh - 5rem);</span>
+<span class="s1">  background: rgba(15,15,15,1);</span>
+<span class="s1">  transition: width .3s;</span>
+<span class="s1">}</span>
+<span class="s1">.host-content {</span>
+<span class="s1">  padding: 2rem;</span>
+<span class="s1">}</span>
+<span class="s1">ul.hosts-nav-entries, ul.hosts-nav-sub {</span>
+<span class="s1">  width: 100%;</span>
+<span class="s1">  list-style: none;</span>
+<span class="s1">  margin: 0;</span>
+<span class="s1">  padding: 0;</span>
+<span class="s1">}</span>
+<span class="s1">ul.hosts-nav-entries li {</span>
+<span class="s1">  width: 100%;</span>
+<span class="s1">  background: rgba(25,25,25,1);</span>
+<span class="s1">  margin: 0;</span>
+<span class="s1">  padding: .8rem;</span>
+<span class="s1">  margin-bottom: 1px;</span>
+<span class="s1">  cursor: pointer;</span>
+<span class="s1">  transition: background .3s;</span>
+<span class="s1">}</span>
+<span class="s1">ul.hosts-nav-entries li:hover {</span>
+<span class="s1">  background: rgb(41, 41, 41);</span>
+<span class="s1">}</span>
+
+<span class="s1">.sub-li {</span>
+<span class="s1">  padding: 0 !important;</span>
+<span class="s1">}</span>
+<span class="s1">.sub-li:hover {</span>
+<span class="s1">  background: rgba(25,25,25,1) !important;</span>
+<span class="s1">}</span>
+
+<span class="s1">ul.hosts-nav-sub li {</span>
+<span class="s1">  border-left: 1rem solid rgb(21, 21, 21);</span>
+<span class="s1">  background: rgba(18,18,18,1);</span>
+<span class="s1">  padding: .8rem;</span>
+<span class="s1">  overflow: hidden;</span>
+<span class="s1">  text-overflow: ellipsis;</span>
+<span class="s1">  transition: border-left .3s;</span>
+<span class="s1">}</span>
+<span class="s1">ul.hosts-nav-sub li:hover, ul.hosts-nav-sub li:focus, ul.hosts-nav-sub li:active {</span>
+<span class="s1">  background: rgba(18,18,18,1);</span>
+<span class="s1">  border-left: 1rem solid rgb(42, 42, 42);</span>
+<span class="s1">}</span>
+
+<span class="s1">span.info-box {</span>
+<span class="s1">  color: #999;</span>
+<span class="s1">  font-style: italic;</span>
+<span class="s1">  background: rgba(10,10,10, 1);</span>
+<span class="s1">  padding: 1rem;</span>
+<span class="s1">  border-radius: 1rem;</span>
+<span class="s1">}</span>
+<span class="s1">span.info-box::before {</span>
+<span class="s1">  content: &quot;ℹ️ &quot;;</span>
+<span class="s1">  font-style: normal;</span>
+<span class="s1">}</span>
+
+<span class="s1">table {</span>
+<span class="s1">	border-collapse: collapse;</span>
+<span class="s1">  width: 100%;</span>
+<span class="s1">  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);</span>
+<span class="s1">  color: #999;</span>
+<span class="s1">  margin-bottom: 21px;</span>
+<span class="s1">}</span>
+<span class="s1">table thead {</span>
+<span class="s1">  cursor: pointer;</span>
+<span class="s1">}</span>
+<span class="s1">table thead tr {</span>
+<span class="s1">  background: rgba(25,25,25,1);</span>
+<span class="s1">  color: #999;</span>
+<span class="s1">  text-align: left;</span>
+<span class="s1">}</span>
+
+<span class="s1">table th, table td {</span>
+<span class="s1">	padding: 12px 15px;</span>
+<span class="s1">}</span>
+<span class="s1">td {</span>
+<span class="s1">}</span>
+<span class="s1">td:first-child {</span>
+<span class="s1">  font-style: normal;</span>
+<span class="s1">}</span>
+
+<span class="s1">table tbody tr {</span>
+<span class="s1">    border-bottom: 1px solid #111;</span>
+<span class="s1">}</span>
+
+<span class="s1">table tbody td {</span>
+<span class="s1">  font-family: monospace;</span>
+<span class="s1">}</span>
+
+<span class="s1">table tbody tr:nth-of-type(even) {</span>
+<span class="s1">  background: rgba(8,8,8,1);</span>
+<span class="s1">}</span>
+<span class="s1">table tbody tr:nth-of-type(odd) {</span>
+<span class="s1">  background: rgba(5,5,5,1);</span>
+<span class="s1">}</span>
+
+<span class="s1">table tbody tr:last-of-type {</span>
+<span class="s1">    border-bottom: 2px solid #111;</span>
+<span class="s1">}</span>
+
+<span class="s1">.error-red {</span>
+<span class="s1">  color: #671c1c;</span>
+<span class="s1">}</span>
+<span class="s1">.ok-green {</span>
+<span class="s1">  color: #457045;</span>
+<span class="s1">}</span>
+
+<span class="s1">#github {</span>
+<span class="s1">  border-bottom: 0;</span>
+<span class="s1">  display: inline-block;</span>
+<span class="s1">  width: 26px;</span>
+<span class="s1">  height: 26px;</span>
+<span class="s1">  background: url(&quot;data:image/png;base64,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&quot;);</span>
+<span class="s1">  background-repeat: no-repeat;</span>
+<span class="s1">  background-size: contain;</span>
+<span class="s1">}</span>
+<span class="s1">&lt;/style&gt;</span>
+<span class="s1">  &lt;/head&gt;</span>
+<span class="s1">  &lt;body&gt;</span>
+<span class="s1">    &lt;div class=&quot;wrapper&quot;&gt;</span>
+<span class="s1">      &lt;nav class=&quot;navigation&quot;&gt;</span>
+<span class="s1">        &lt;div class=&quot;left-nav&quot;&gt;</span>
+<span class="s1">          &lt;div class=&quot;logo&quot;&gt;&lt;img style=&quot;width:34px; height: 34px; font-size:</span>
+<span class="s1">            12px&quot; src=&quot;/TODO&quot; alt=&quot;TODO logo&quot;&gt;&lt;/div&gt;</span>
+<span class="s1">          &lt;div class=&quot;search-box&quot;&gt;</span>
+<span class="s1">            &lt;input id=&quot;search-input&quot; placeholder=&quot;filter hosts&quot;&gt;</span>
+<span class="s1">          &lt;/div&gt;</span>
+<span class="s1">        &lt;/div&gt;</span>
+<span class="s1">        &lt;div class=&quot;right-nav&quot;&gt;</span>
+<span class="s1">          &lt;ul class=&quot;links&quot;&gt;</span>
+<span class="s1">            &lt;li&gt;</span>
+<span class="s1">              &lt;a </span>
+<span class="s1">              href=&quot;https://github.com/medecaj/conquer_s&quot;</span>
+<span class="s1">              id=&quot;github&quot;</span>
+<span class="s1">              target=&quot;_blank&quot;&gt;</span>
+<span class="s1">              &lt;/a&gt;</span>
+<span class="s1">            &lt;/li&gt;</span>
+<span class="s1">          &lt;/ul&gt;</span>
+<span class="s1">        &lt;/div&gt;</span>
+<span class="s1">      &lt;/nav&gt;</span>
+
+<span class="s1">      &lt;div class=&quot;main&quot;&gt;</span>
+<span class="s1">        &lt;div class=&quot;hosts-nav-wrapper&quot;&gt;</span>
+<span class="s1">          &lt;div class=&quot;hosts-nav-content&quot;&gt;</span>
+<span class="s1">            &lt;ul class=&quot;hosts-nav-entries&quot;&gt;</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Top part of the html page that can be generated as a report.</span>
+<span class="sd">    Yes, it&#39;s ugly but it works.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">HTML_BOTTOM</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                &lt;/ul&gt;</span>
+<span class="s1">              &lt;/li&gt;</span>
+<span class="s1">            &lt;/ul&gt;</span>
+<span class="s1">          &lt;/div&gt;</span>
+<span class="s1">        &lt;/div&gt;</span>
+<span class="s1">        &lt;div class=&quot;host-content-wrapper&quot;&gt;</span>
+<span class="s1">          &lt;div class=&quot;host-content&quot; id=&quot;host-content&quot;&gt;</span>
+<span class="s1">            &lt;span class=&quot;info-box&quot;&gt;</span>
+<span class="s1">              Click a host on the left to see its report.</span>
+<span class="s1">            &lt;/span&gt;</span>
+<span class="s1">          &lt;/div&gt;</span>
+<span class="s1">        &lt;/div&gt;</span>
+<span class="s1">      &lt;/div&gt;</span>
+
+<span class="s1">    &lt;/div&gt;</span>
+<span class="s1">    &lt;!--&lt;script src=&quot;js/main.js&quot;&gt;&lt;/script&gt;--&gt;</span>
+<span class="s1">    &lt;script&gt;</span>
+<span class="s1">(() =&gt; {</span>
+<span class="s1">  &#39;use strict&#39;;</span>
+
+<span class="s1">  class FilterHosts {</span>
+<span class="s1">    constructor() {</span>
+<span class="s1">      this.list = document.getElementsByClassName(&quot;sub-li-item&quot;);</span>
+<span class="s1">      this.search_input = document.getElementById(&quot;search-input&quot;);</span>
+<span class="s1">      this.addEvent();</span>
+<span class="s1">    }</span>
+<span class="s1">    addEvent() {</span>
+<span class="s1">      this.search_input.addEventListener(&quot;keyup&quot;, (e) =&gt; {</span>
+<span class="s1">        let value = this.search_input.value;</span>
+<span class="s1">        for(let i = 0; i &lt; this.list.length; i++) {</span>
+<span class="s1">          if(this.list[i].textContent.toLowerCase().includes(</span>
+<span class="s1">            value.toLowerCase()</span>
+<span class="s1">            )</span>
+<span class="s1">          ) {</span>
+<span class="s1">            this.list[i].style.display = &quot;block&quot;;</span>
+<span class="s1">          }</span>
+<span class="s1">          else {</span>
+<span class="s1">            this.list[i].style.display = &quot;none&quot;;</span>
+<span class="s1">          }</span>
+<span class="s1">        }</span>
+<span class="s1">      });</span>
+<span class="s1">    }</span>
+<span class="s1">  }</span>
+
+<span class="s1">  class Expander {</span>
+<span class="s1">    constructor(elem, target, cssVisibleAttribute) {</span>
+<span class="s1">      this.elem = elem;</span>
+<span class="s1">      this.target = target</span>
+<span class="s1">      this.open = true;</span>
+<span class="s1">      this.cssVisibleAttribute = cssVisibleAttribute;</span>
+<span class="s1">      this.add_click_event();</span>
+<span class="s1">    }</span>
+
+<span class="s1">    add_click_event() {</span>
+<span class="s1">      this.elem.addEventListener(&quot;click&quot;, (e) =&gt; {</span>
+<span class="s1">        this.elem.style.opacity = (this.open) ? &quot;0.5&quot; : &quot;1&quot;;</span>
+<span class="s1">        this.target.style.display = (this.open) ? &quot;none&quot; : this.cssVisibleAttribute;</span>
+<span class="s1">        this.open = !this.open;</span>
+<span class="s1">      });</span>
+<span class="s1">    }</span>
+<span class="s1">  }</span>
+<span class="s1">  /*** class Expander END *********************************/</span>
+
+<span class="s1">  class HTMLBuilder {</span>
+<span class="s1">    constructor(elem) {</span>
+<span class="s1">      this.clicked_node = elem;</span>
+<span class="s1">      this.obj = </span><span class="si">{}</span><span class="s1">;</span>
+<span class="s1">      this.group = &quot;&quot;;</span>
+<span class="s1">      this.host_obj = </span><span class="si">{}</span><span class="s1">;</span>
+<span class="s1">      this.host = &quot;&quot;;</span>
+<span class="s1">      this.error = &quot;&quot;;</span>
+<span class="s1">      this.html = &quot;&quot;;</span>
+<span class="s1">      this.json_string = &quot;&quot;;</span>
+<span class="s1">      this.contentNode = this.gid(&quot;host-content&quot;);</span>
+<span class="s1">      this.check_error_set_color();</span>
+<span class="s1">      this.add_click_event(elem);</span>
+<span class="s1">    }</span>
+<span class="s1">    /*** constructor END ***************/</span>
+
+<span class="s1">    /*</span>
+<span class="s1">     * Check for error length in dataset-json</span>
+<span class="s1">     * and sets hostname green for ok or red</span>
+<span class="s1">     * if errors occured.</span>
+<span class="s1">     */</span>
+<span class="s1">    check_error_set_color() {</span>
+<span class="s1">      this.json_string = this.clicked_node.dataset.json;</span>
+
+<span class="s1">      /*</span>
+<span class="s1">       * Get JSON object from dataset.</span>
+<span class="s1">       */</span>
+<span class="s1">      try {</span>
+<span class="s1">        this.obj = JSON.parse(this.json_string)</span>
+<span class="s1">      }</span>
+<span class="s1">      catch(e) {</span>
+<span class="s1">        let error = &quot;[ERROR] No JSON data or erroneous data. This is a bug.&quot;;</span>
+<span class="s1">        this.error = this.ce(&quot;p&quot;);</span>
+<span class="s1">        this.error.textContent = error;</span>
+<span class="s1">        this.error.classList.add(&quot;error-red&quot;);</span>
+<span class="s1">        this.clicked_node.classList.add(&quot;error-red&quot;);</span>
+<span class="s1">        return;</span>
+<span class="s1">      }</span>
+
+<span class="s1">      // Get first key with is the group name.</span>
+<span class="s1">      for(let g in this.obj) {</span>
+<span class="s1">        this.group = g;</span>
+<span class="s1">        break;</span>
+<span class="s1">      }</span>
+
+<span class="s1">      // Get the host name and set object.</span>
+<span class="s1">      for(let h in this.obj[this.group][0]) {</span>
+<span class="s1">        this.host = h;</span>
+<span class="s1">        this.host_obj = this.obj[this.group][0][h]</span>
+<span class="s1">        break;</span>
+<span class="s1">      }</span>
+
+<span class="s1">      if(this.host_obj[&quot;errors&quot;].length &gt; 0)</span>
+<span class="s1">        this.clicked_node.classList.add(&quot;error-red&quot;);</span>
+<span class="s1">      else </span>
+<span class="s1">        this.clicked_node.classList.add(&quot;ok-green&quot;);</span>
+<span class="s1">    }</span>
+<span class="s1">    /*** check_error_set_color END *****/</span>
+
+<span class="s1">    /*</span>
+<span class="s1">     * shorteners</span>
+<span class="s1">     */</span>
+<span class="s1">    ce(elem) {</span>
+<span class="s1">      return document.createElement(elem);</span>
+<span class="s1">    }</span>
+<span class="s1">    gid(elem) {</span>
+<span class="s1">      return document.getElementById(elem);</span>
+<span class="s1">    }</span>
+<span class="s1">    gc(elem) {</span>
+<span class="s1">      return document.getElementsByClassName(elem);</span>
+<span class="s1">    }</span>
+<span class="s1">    gt(elem) {</span>
+<span class="s1">      return document.getElementsByTagName(elem);</span>
+<span class="s1">    }</span>
+<span class="s1">    /*** shorteners END ****************/</span>
+
+<span class="s1">    /*</span>
+<span class="s1">     * Add click event for host item:</span>
+<span class="s1">     *  * builds html</span>
+<span class="s1">     *  * shows html</span>
+<span class="s1">     *  * makes tables expandable using class Expander</span>
+<span class="s1">     */</span>
+<span class="s1">    add_click_event(elem) {</span>
+<span class="s1">      elem.addEventListener(&quot;click&quot;, (e) =&gt; {</span>
+<span class="s1">        this.buildHTML(elem)</span>
+<span class="s1">        this.show_html().then(</span>
+<span class="s1">          (resp) =&gt; {</span>
+<span class="s1">            setTimeout(() =&gt; {</span>
+<span class="s1">              let heads = document.getElementsByTagName(&quot;thead&quot;);</span>
+
+<span class="s1">              for(let i = 0; i &lt; heads.length; i++) {</span>
+<span class="s1">                let target = heads[i].parentNode.getElementsByTagName(&quot;tbody&quot;)[0];</span>
+<span class="s1">                let expander = new Expander(</span>
+<span class="s1">                  heads[i],</span>
+<span class="s1">                  target,</span>
+<span class="s1">                  &quot;table-row-group&quot;</span>
+<span class="s1">                );</span>
+<span class="s1">              }</span>
+<span class="s1">            }, 100);</span>
+<span class="s1">          }</span>
+<span class="s1">        )</span>
+<span class="s1">      });</span>
+<span class="s1">    }</span>
+<span class="s1">    /*** add_click_event END ***********/</span>
+
+<span class="s1">    create_commands_table(type) {</span>
+<span class="s1">      const t = {</span>
+<span class="s1">        table: { </span>
+<span class="s1">          node: this.ce(&quot;table&quot;)</span>
+<span class="s1">        },</span>
+<span class="s1">        thead: {</span>
+<span class="s1">          tr: this.ce(&quot;tr&quot;),</span>
+<span class="s1">          node: this.ce(&quot;thead&quot;)</span>
+<span class="s1">        },</span>
+<span class="s1">        tbody: {</span>
+<span class="s1">          node: this.ce(&quot;tbody&quot;)</span>
+<span class="s1">        },</span>
+<span class="s1">      };</span>
+
+<span class="s1">      t.thead.node.appendChild(t.thead.tr);</span>
+
+<span class="s1">      [</span>
+<span class="s1">        type,</span>
+<span class="s1">        &quot;output&quot;</span>
+<span class="s1">      ].map((text, i) =&gt; {</span>
+<span class="s1">        let th = this.ce(&quot;th&quot;);</span>
+<span class="s1">        th.textContent = text;</span>
+<span class="s1">        t.thead.tr.appendChild(th);</span>
+<span class="s1">      });</span>
+
+<span class="s1">      t.table.node.append(</span>
+<span class="s1">        t.thead.node,</span>
+<span class="s1">        t.tbody.node,</span>
+<span class="s1">      );</span>
+
+<span class="s1">      if(typeof(this.host_obj[&quot;config&quot;][&quot;settings&quot;][type]) === &quot;object&quot;) {</span>
+<span class="s1">        /*</span>
+<span class="s1">         * One array can be larger than the other.</span>
+<span class="s1">         * Find the larger one and use its length in the for loop.</span>
+<span class="s1">         */</span>
+<span class="s1">        const len = (</span>
+<span class="s1">          this.host_obj[&quot;config&quot;][&quot;settings&quot;][type].length &gt;</span>
+<span class="s1">            this.host_obj[&quot;output&quot;][type].length</span>
+<span class="s1">        ) ? this.host_obj[&quot;config&quot;][&quot;settings&quot;][type].length :</span>
+<span class="s1">              this.host_obj[&quot;output&quot;][type].length;</span>
+
+<span class="s1">        for(let i = 0; i &lt; len; i++) {</span>
+<span class="s1">          let tr = this.ce(&quot;tr&quot;);</span>
+<span class="s1">          let td1 = this.ce(&quot;td&quot;);</span>
+<span class="s1">          let td2 = this.ce(&quot;td&quot;);</span>
+
+<span class="s1">          td1.textContent = (</span>
+<span class="s1">            typeof(this.host_obj[&quot;config&quot;][&quot;settings&quot;][type][i]) === &quot;undefined&quot;</span>
+<span class="s1">          ) ? &quot;&quot; : this.host_obj[&quot;config&quot;][&quot;settings&quot;][type][i];</span>
+<span class="s1">          td2.textContent = (</span>
+<span class="s1">            typeof(this.host_obj[&quot;output&quot;][type][i]) === &quot;undefined&quot;</span>
+<span class="s1">          ) ? &quot;&quot; : this.host_obj[&quot;output&quot;][type][i];</span>
+
+<span class="s1">          tr.append(td1, td2);</span>
+
+<span class="s1">          t.tbody.node.appendChild(tr);</span>
+<span class="s1">        }</span>
+<span class="s1">      }</span>
+
+<span class="s1">      return t;</span>
+<span class="s1">    }</span>
+<span class="s1">    /*** create_commands_table END *****/</span>
+
+<span class="s1">    buildHTML(elem) {</span>
+<span class="s1">      // No dataset -&gt; return</span>
+<span class="s1">      // This should not happen.</span>
+<span class="s1">      if(Object.keys(this.obj).length === 0)</span>
+<span class="s1">        return;</span>
+
+<span class="s1">      const div = this.ce(&quot;div&quot;);</span>
+
+<span class="s1">      /*</span>
+<span class="s1">       * Create summary table.</span>
+<span class="s1">       */</span>
+<span class="s1">      const summary = {</span>
+<span class="s1">        table: {</span>
+<span class="s1">          node: this.ce(&quot;table&quot;)</span>
+<span class="s1">        },</span>
+<span class="s1">        tbody: {</span>
+<span class="s1">          node: this.ce(&quot;tbody&quot;),</span>
+<span class="s1">          tr: this.ce(&quot;tr&quot;),</span>
+<span class="s1">          group: {</span>
+<span class="s1">            node: this.ce(&quot;td&quot;)</span>
+<span class="s1">          },</span>
+<span class="s1">          host: {</span>
+<span class="s1">            node: this.ce(&quot;td&quot;),</span>
+<span class="s1">          },</span>
+<span class="s1">          user: {</span>
+<span class="s1">            node: this.ce(&quot;td&quot;),</span>
+<span class="s1">          },</span>
+<span class="s1">          message: {</span>
+<span class="s1">            node: this.ce(&quot;td&quot;)</span>
+<span class="s1">          },</span>
+<span class="s1">          rc: {</span>
+<span class="s1">            node: this.ce(&quot;td&quot;)</span>
+<span class="s1">          },</span>
+<span class="s1">          errors: {</span>
+<span class="s1">            node: this.ce(&quot;td&quot;)</span>
+<span class="s1">          }</span>
+
+<span class="s1">        },</span>
+<span class="s1">        thead: {</span>
+<span class="s1">          node: this.ce(&quot;thead&quot;),</span>
+<span class="s1">          tr: {</span>
+<span class="s1">            node: this.ce(&quot;tr&quot;)</span>
+<span class="s1">          },</span>
+<span class="s1">          th: {</span>
+<span class="s1">            group: {</span>
+<span class="s1">              node: this.ce(&quot;th&quot;)</span>
+<span class="s1">            },</span>
+<span class="s1">            host: {</span>
+<span class="s1">              node: this.ce(&quot;th&quot;)</span>
+<span class="s1">            },</span>
+<span class="s1">            user: {</span>
+<span class="s1">              node: this.ce(&quot;th&quot;)</span>
+<span class="s1">            },</span>
+<span class="s1">            message: {</span>
+<span class="s1">              node: this.ce(&quot;th&quot;)</span>
+<span class="s1">            },</span>
+<span class="s1">            rc: {</span>
+<span class="s1">              node: this.ce(&quot;th&quot;)</span>
+<span class="s1">            },</span>
+<span class="s1">            errors: {</span>
+<span class="s1">              node: this.ce(&quot;th&quot;)</span>
+<span class="s1">            }</span>
+<span class="s1">          }</span>
+<span class="s1">        }</span>
+<span class="s1">      };</span>
+
+<span class="s1">      summary.table.node.append(</span>
+<span class="s1">        summary.thead.node,</span>
+<span class="s1">        summary.tbody.node</span>
+<span class="s1">      );</span>
+<span class="s1">      summary.thead.node.append(</span>
+<span class="s1">        summary.thead.tr.node</span>
+<span class="s1">      );</span>
+<span class="s1">      summary.thead.tr.node.append(</span>
+<span class="s1">        summary.thead.th.group.node,</span>
+<span class="s1">        summary.thead.th.host.node,</span>
+<span class="s1">        summary.thead.th.user.node,</span>
+<span class="s1">        summary.thead.th.message.node,</span>
+<span class="s1">        summary.thead.th.rc.node,</span>
+<span class="s1">        summary.thead.th.errors.node,</span>
+<span class="s1">      );</span>
+<span class="s1">      [</span>
+<span class="s1">        summary.thead.th.group.node,</span>
+<span class="s1">        summary.thead.th.host.node,</span>
+<span class="s1">        summary.thead.th.user.node,</span>
+<span class="s1">        summary.thead.th.message.node,</span>
+<span class="s1">        summary.thead.th.rc.node,</span>
+<span class="s1">        summary.thead.th.errors.node,</span>
+<span class="s1">      ].map((node, i) =&gt; { </span>
+<span class="s1">        node.setAttribute(&quot;scope&quot;, &quot;col&quot;);</span>
+
+<span class="s1">        switch(i) {</span>
+<span class="s1">          case 0:</span>
+<span class="s1">            node.textContent = &quot;Group&quot;;</span>
+<span class="s1">            break;</span>
+<span class="s1">          case 1:</span>
+<span class="s1">            node.textContent = &quot;Host&quot;;</span>
+<span class="s1">            break;</span>
+<span class="s1">          case 2:</span>
+<span class="s1">            node.textContent = &quot;User&quot;;</span>
+<span class="s1">            break;</span>
+<span class="s1">          case 3:</span>
+<span class="s1">            node.textContent = &quot;Message&quot;;</span>
+<span class="s1">            break;</span>
+<span class="s1">          case 4:</span>
+<span class="s1">            node.textContent = &quot;rc&quot;;</span>
+<span class="s1">            break;</span>
+<span class="s1">          case 5:</span>
+<span class="s1">            node.textContent = &quot;Errors&quot;;</span>
+<span class="s1">            break;</span>
+<span class="s1">        }</span>
+<span class="s1">      })</span>
+
+<span class="s1">      /*</span>
+<span class="s1">       * Create summary body.</span>
+<span class="s1">       */</span>
+
+<span class="s1">      summary.tbody.group.node.textContent = this.group;</span>
+<span class="s1">      summary.tbody.host.node.textContent = this.host;</span>
+<span class="s1">      summary.tbody.user.node.textContent = this.host_obj[&quot;config&quot;][&quot;credentials&quot;][&quot;user&quot;];</span>
+<span class="s1">      summary.tbody.message.node.textContent = this.host_obj[&quot;message&quot;];</span>
+<span class="s1">      if(this.host_obj[&quot;message&quot;] !== &quot;ok&quot;)</span>
+<span class="s1">        summary.tbody.message.node.classList.add(&quot;error-red&quot;);</span>
+<span class="s1">      summary.tbody.rc.node.textContent = this.host_obj[&quot;rc&quot;];</span>
+<span class="s1">      summary.tbody.errors.node.textContent = this.host_obj[&quot;errors&quot;].length;</span>
+<span class="s1">      if(this.host_obj[&quot;errors&quot;].length &gt; 0)</span>
+<span class="s1">        summary.tbody.errors.node.classList.add(&quot;error-red&quot;);</span>
+
+<span class="s1">      summary.tbody.node.appendChild(summary.tbody.tr);</span>
+
+<span class="s1">      summary.tbody.tr.append(</span>
+<span class="s1">        summary.tbody.group.node,</span>
+<span class="s1">        summary.tbody.host.node,</span>
+<span class="s1">        summary.tbody.user.node,</span>
+<span class="s1">        summary.tbody.message.node,</span>
+<span class="s1">        summary.tbody.rc.node,</span>
+<span class="s1">        summary.tbody.errors.node,</span>
+<span class="s1">      );</span>
+
+<span class="s1">      /*** summary END *******************/</span>
+
+<span class="s1">      /*</span>
+<span class="s1">       * Create errors table.</span>
+<span class="s1">       */</span>
+<span class="s1">      const t_errors = {</span>
+<span class="s1">        table: {</span>
+<span class="s1">          node: this.ce(&quot;table&quot;),</span>
+<span class="s1">        },</span>
+<span class="s1">        thead: {</span>
+<span class="s1">          tr: this.ce(&quot;tr&quot;),</span>
+<span class="s1">          node: this.ce(&quot;thead&quot;),</span>
+<span class="s1">        },</span>
+<span class="s1">        tbody: {</span>
+<span class="s1">          node: this.ce(&quot;tbody&quot;),</span>
+<span class="s1">        }</span>
+<span class="s1">      };</span>
+
+<span class="s1">      let th = this.ce(&quot;th&quot;);</span>
+<span class="s1">      th.textContent = &quot;Errors&quot;;</span>
+<span class="s1">      t_errors.thead.tr.appendChild(th);</span>
+
+<span class="s1">      t_errors.thead.node.appendChild(</span>
+<span class="s1">        t_errors.thead.tr</span>
+<span class="s1">      );</span>
+
+<span class="s1">      t_errors.table.node.append(</span>
+<span class="s1">        t_errors.thead.node,</span>
+<span class="s1">        t_errors.tbody.node</span>
+<span class="s1">      );</span>
+
+<span class="s1">      for(let e in this.host_obj[&quot;errors&quot;]) {</span>
+<span class="s1">        let tr = this.ce(&quot;tr&quot;);</span>
+<span class="s1">        let td = this.ce(&quot;td&quot;);</span>
+<span class="s1">        td.textContent = this.host_obj[&quot;errors&quot;][e];</span>
+<span class="s1">        tr.appendChild(td);</span>
+<span class="s1">        t_errors.tbody.node.appendChild(tr);</span>
+<span class="s1">      }</span>
+
+<span class="s1">      /*</span>
+<span class="s1">       * Create table for settings.</span>
+<span class="s1">       */</span>
+<span class="s1">      const settings = {</span>
+<span class="s1">        table: { </span>
+<span class="s1">          node: this.ce(&quot;table&quot;)</span>
+<span class="s1">        },</span>
+<span class="s1">        thead: {</span>
+<span class="s1">          tr: this.ce(&quot;tr&quot;),</span>
+<span class="s1">          node: this.ce(&quot;thead&quot;)</span>
+<span class="s1">        },</span>
+<span class="s1">        tbody: {</span>
+<span class="s1">          tr: this.ce(&quot;tr&quot;),</span>
+<span class="s1">          node: this.ce(&quot;tbody&quot;)</span>
+<span class="s1">        },</span>
+<span class="s1">      };</span>
+
+<span class="s1">      settings.thead.node.append(settings.thead.tr);</span>
+<span class="s1">      settings.tbody.node.append(settings.tbody.tr)</span>
+
+<span class="s1">      settings.table.node.append(</span>
+<span class="s1">        settings.thead.node,</span>
+<span class="s1">        settings.tbody.node,</span>
+<span class="s1">      );</span>
+
+<span class="s1">      for(let k in this.host_obj[&quot;config&quot;][&quot;settings&quot;]) {</span>
+<span class="s1">        // do not add cmds, yet </span>
+<span class="s1">        if(k.includes(&quot;cmds&quot;))</span>
+<span class="s1">          continue;</span>
+<span class="s1">        </span>
+<span class="s1">        let th = this.ce(&quot;th&quot;);</span>
+<span class="s1">        th.textContent = k;</span>
+<span class="s1">        settings.thead.tr.append(th)</span>
+<span class="s1">        let td = this.ce(&quot;td&quot;);</span>
+<span class="s1">        td.textContent = this.host_obj[&quot;config&quot;][&quot;settings&quot;][k]</span>
+<span class="s1">        settings.tbody.tr.append(td)</span>
+<span class="s1">      }</span>
+<span class="s1">      /*** settings table END ************/</span>
+
+<span class="s1">      /*</span>
+<span class="s1">       * Create cmds_before table.</span>
+<span class="s1">       */</span>
+<span class="s1">      const cmds_before = this.create_commands_table(&quot;cmds_before&quot;);</span>
+<span class="s1">      const cmds_after = this.create_commands_table(&quot;cmds_after&quot;);</span>
+<span class="s1">      const conf_cmds = this.create_commands_table(&quot;conf_cmds&quot;);</span>
+
+<span class="s1">      div.append(</span>
+<span class="s1">        summary.table.node,</span>
+<span class="s1">        t_errors.table.node,</span>
+<span class="s1">        settings.table.node,</span>
+<span class="s1">        cmds_before.table.node,</span>
+<span class="s1">        cmds_after.table.node,</span>
+<span class="s1">        conf_cmds.table.node,</span>
+<span class="s1">      );</span>
+
+<span class="s1">      /*</span>
+<span class="s1">       * Set html.</span>
+<span class="s1">       */</span>
+<span class="s1">      this.html = div;</span>
+
+<span class="s1">    }</span>
+<span class="s1">    /*** buildHTML END *****************/</span>
+
+<span class="s1">    show_html() {</span>
+<span class="s1">      return new Promise((resolve, reject) =&gt; {</span>
+<span class="s1">        this.contentNode.innerHTML = &quot;&quot;;</span>
+<span class="s1">        this.contentNode.appendChild(</span>
+<span class="s1">          (this.error) ? this.error : this.html</span>
+<span class="s1">        );</span>
+
+<span class="s1">        resolve(&quot;ready&quot;);</span>
+<span class="s1">      });</span>
+<span class="s1">    }</span>
+<span class="s1">  }</span>
+<span class="s1">  /*** class HTMLBuilder END ******************************/</span>
+
+<span class="s1">  /*</span>
+<span class="s1">   * Make Groups expandable</span>
+<span class="s1">   */</span>
+<span class="s1">  const all_groups = document.getElementsByClassName(&quot;group-entry&quot;);</span>
+<span class="s1">  for(let i = 0; i &lt; all_groups.length; i++) {</span>
+<span class="s1">    let expander = new Expander(all_groups[i], all_groups[i].nextSibling, &quot;block&quot;);</span>
+<span class="s1">  }</span>
+
+<span class="s1">  /*</span>
+<span class="s1">   * Show report when host clicked.</span>
+<span class="s1">   */</span>
+<span class="s1">  const all_lists = document.getElementsByClassName(&quot;hosts-nav-sub&quot;);</span>
+<span class="s1">  for(let i = 0; i &lt; all_lists.length; i++) {</span>
+<span class="s1">    let all_hosts = all_lists[i].getElementsByTagName(&quot;li&quot;);</span>
+<span class="s1">    for(let j = 0; j &lt; all_hosts.length; j++) {</span>
+<span class="s1">      try {</span>
+<span class="s1">        let builder = new HTMLBuilder(all_hosts[j]);</span>
+<span class="s1">      }</span>
+<span class="s1">      catch(e) {</span>
+<span class="s1">        console.log(e);</span>
+<span class="s1">      }</span>
+<span class="s1">    }</span>
+<span class="s1">  }</span>
+<span class="s1">  </span>
+<span class="s1">  /*</span>
+<span class="s1">   * Filter hosts.</span>
+<span class="s1">   */</span>
+<span class="s1">  const filter_hosts =  new FilterHosts();</span>
+
+<span class="s1">})();</span>
+<span class="s1">    &lt;/script&gt;</span>
+<span class="s1">  &lt;/body&gt;</span>
+<span class="s1">&lt;/html&gt;</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Bottom part of the html page that can be generated as a report.</span>
+<span class="sd">    Yes, it&#39;s ugly but it works.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Constants.set_abs_path">
+<a class="viewcode-back" href="../cs_constants.html#cs_constants.Constants.set_abs_path">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">set_abs_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert :py:class:`~cs_constants.Constants.CHOME`</span>
+<span class="sd">        to absolute path and set</span>
+<span class="sd">        :py:class:`~cs_constants.Constants.CHOME_ABS_PATH`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Constants</span><span class="o">.</span><span class="n">CHOME_ABS_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">Constants</span><span class="o">.</span><span class="n">CHOME</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">())))</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Albert Johannes Mendes.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

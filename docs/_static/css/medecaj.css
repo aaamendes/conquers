@@ -1,0 +1,15 @@
+.wy-nav-content {
+  max-width: 1400px;
+}
+
+dd {
+  max-width: 610px;
+}
+
+.logo {
+  width: 144px !important;
+}
+
+video {
+  width: 100%;
+}

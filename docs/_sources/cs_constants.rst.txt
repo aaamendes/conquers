@@ -1,0 +1,7 @@
+cs\_constants module
+====================
+
+.. automodule:: cs_constants
+   :members:
+   :undoc-members:
+   :show-inheritance:

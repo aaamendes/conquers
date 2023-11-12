@@ -1,0 +1,10 @@
+__pycache__
+*.pyc
+*.swp
+.DS_Store
+bin
+dist
+build
+lib
+pyvenv.cfg
+conquers.spec

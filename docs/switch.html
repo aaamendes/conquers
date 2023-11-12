@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>switch module &mdash; conquers 0.1 (beta) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/medecaj.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f6c902d1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="utilities module" href="utilities.html" />
+    <link rel="prev" title="credentials module" href="credentials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            conquers
+              <img src="https://cdn.amendes.me/conquers/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">conquers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="collector.html">collector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">configuration module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">credentials module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">switch module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#switch.ChParams"><code class="docutils literal notranslate"><span class="pre">ChParams</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#switch.ChParams.user"><code class="docutils literal notranslate"><span class="pre">ChParams.user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.ChParams.password"><code class="docutils literal notranslate"><span class="pre">ChParams.password</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.ChParams.host"><code class="docutils literal notranslate"><span class="pre">ChParams.host</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.ChParams.device_type"><code class="docutils literal notranslate"><span class="pre">ChParams.device_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.ChParams.conn_timeout"><code class="docutils literal notranslate"><span class="pre">ChParams.conn_timeout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.ChParams.read_timeout"><code class="docutils literal notranslate"><span class="pre">ChParams.read_timeout</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#switch.CsSwitch"><code class="docutils literal notranslate"><span class="pre">CsSwitch</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#switch.CsSwitch.config"><code class="docutils literal notranslate"><span class="pre">CsSwitch.config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.CsSwitch.params"><code class="docutils literal notranslate"><span class="pre">CsSwitch.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.CsSwitch.collect_commands"><code class="docutils literal notranslate"><span class="pre">CsSwitch.collect_commands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.CsSwitch.save_config"><code class="docutils literal notranslate"><span class="pre">CsSwitch.save_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.CsSwitch.send_cmds"><code class="docutils literal notranslate"><span class="pre">CsSwitch.send_cmds()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.CsSwitch.send_cmds_ba"><code class="docutils literal notranslate"><span class="pre">CsSwitch.send_cmds_ba()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.CsSwitch.send_conf_cmds"><code class="docutils literal notranslate"><span class="pre">CsSwitch.send_conf_cmds()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch.CsSwitch.split_into_sets"><code class="docutils literal notranslate"><span class="pre">CsSwitch.split_into_sets()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#switch.CsSwitchError"><code class="docutils literal notranslate"><span class="pre">CsSwitchError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">utilities module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">conquers</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">conquers</a></li>
+      <li class="breadcrumb-item active">switch module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/switch.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-switch">
+<span id="switch-module"></span><h1>switch module<a class="headerlink" href="#module-switch" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="switch.ChParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">switch.</span></span><span class="sig-name descname"><span class="pre">ChParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/switch.html#ChParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switch.ChParams" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Set <a class="reference external" href="https://ktbyers.github.io/netmiko/docs/netmiko/index.html#netmiko.ConnectHandler">ConnectHandler</a> parameters</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="switch.ChParams.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#switch.ChParams.user" title="Link to this definition"></a></dt>
+<dd><p>User name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="switch.ChParams.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#switch.ChParams.password" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="switch.ChParams.host">
+<span class="sig-name descname"><span class="pre">host</span></span><a class="headerlink" href="#switch.ChParams.host" title="Link to this definition"></a></dt>
+<dd><p>The hostname to connect to (can be an IP address, too).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="switch.ChParams.device_type">
+<span class="sig-name descname"><span class="pre">device_type</span></span><a class="headerlink" href="#switch.ChParams.device_type" title="Link to this definition"></a></dt>
+<dd><p>e.g. “cisco_ios”.
+Check out netmiko’s <a class="reference external" href="https://ktbyers.github.io/netmiko/docs/netmiko/index.html">documentation</a> for your device type.
+You can find, for example, the module <code class="docutils literal notranslate"><span class="pre">netmiko.cisco</span></code> under which the
+submodules represent the string that you need. So there is
+<code class="docutils literal notranslate"><span class="pre">netmiko.cisco.cisco_ios</span></code> and “cisco_ios” is, what you would use.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="switch.ChParams.conn_timeout">
+<span class="sig-name descname"><span class="pre">conn_timeout</span></span><a class="headerlink" href="#switch.ChParams.conn_timeout" title="Link to this definition"></a></dt>
+<dd><p>Connection timeout in seconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="switch.ChParams.read_timeout">
+<span class="sig-name descname"><span class="pre">read_timeout</span></span><a class="headerlink" href="#switch.ChParams.read_timeout" title="Link to this definition"></a></dt>
+<dd><p>Timeout for reading in seconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="switch.CsSwitch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">switch.</span></span><span class="sig-name descname"><span class="pre">CsSwitch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/switch.html#CsSwitch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switch.CsSwitch" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Connects to a switch and sends the commands configured in the configuration
+file.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="switch.CsSwitch.config">
+<span class="sig-name descname"><span class="pre">config</span></span><a class="headerlink" href="#switch.CsSwitch.config" title="Link to this definition"></a></dt>
+<dd><p>pass</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="switch.CsSwitch.params">
+<span class="sig-name descname"><span class="pre">params</span></span><a class="headerlink" href="#switch.CsSwitch.params" title="Link to this definition"></a></dt>
+<dd><p>All the parameters needed for
+<a class="reference external" href="https://ktbyers.github.io/netmiko/docs/netmiko/">netmiko</a>’s
+<a class="reference external" href="https://ktbyers.github.io/netmiko/docs/netmiko/index.html#netmiko.ConnectHandler">ConnectHandler</a>
+to connect to a switch.
+Populated with values from <a class="reference internal" href="#switch.CsSwitch.config" title="switch.CsSwitch.config"><code class="xref py py-class docutils literal notranslate"><span class="pre">config</span></code></a> for readabilty and it’s easier to
+write the needed keys that way.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#switch.ChParams" title="switch.ChParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChParams</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="switch.CsSwitch.collect_commands">
+<span class="sig-name descname"><span class="pre">collect_commands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/switch.html#CsSwitch.collect_commands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switch.CsSwitch.collect_commands" title="Link to this definition"></a></dt>
+<dd><p>Creates a dictionary like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;cmds_before&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;cmds_after&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;conf_cmds&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>from <a class="reference internal" href="#switch.CsSwitch.config" title="switch.CsSwitch.config"><code class="xref py py-class docutils literal notranslate"><span class="pre">config</span></code></a>.</p>
+<p>If available, add the commands from files defined in the configuration
+with something like this:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmds_before_file:</span> <span class="pre">/path/to/file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmds_after_file:</span> <span class="pre">/path/to/file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conf_cmds_file:</span> <span class="pre">/path/to/file</span></code></p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="switch.CsSwitch.save_config">
+<span class="sig-name descname"><span class="pre">save_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/switch.html#CsSwitch.save_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switch.CsSwitch.save_config" title="Link to this definition"></a></dt>
+<dd><p>Since netmiko’s <a class="reference external" href="https://ktbyers.github.io/netmiko/docs/netmiko/index.html#netmiko.BaseConnection.save_config">save_config</a> method is not implemented for
+the class <a class="reference external" href="https://ktbyers.github.io/netmiko/docs/netmiko/index.html#netmiko.BaseConnection">BaseConnection</a>,
+it is necessary to define <cite>expect</cite> and
+<cite>answer</cite> strings in <cite>conquers.yaml</cite> to identify the string to
+look for in the output and answer accordingly. This is possible with
+<cite>netmiko</cite>:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Like so</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">send_command_timing</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">read_timeout</span><span class="o">=</span><span class="n">READTIMEOUT</span><span class="p">)</span>
+<span class="k">if</span> <span class="s2">&quot;Are you sure&quot;</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+    <span class="n">output</span> <span class="o">+=</span> <span class="n">device</span><span class="o">.</span><span class="n">send_command_timing</span><span class="p">(</span>
+        <span class="s2">&quot;Y&quot;</span><span class="p">,</span>
+        <span class="n">read_timeout</span><span class="o">=</span><span class="n">READTIMEOUT</span><span class="p">,</span>
+        <span class="n">strip_prompt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">strip_command</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>not implemented</p></li>
+<li><p>see <a class="reference internal" href="#switch.CsSwitch.split_into_sets" title="switch.CsSwitch.split_into_sets"><code class="xref py py-class docutils literal notranslate"><span class="pre">switch.CsSwitch.split_into_sets()</span></code></a> for                    information on how it’s possible to do it using a special                    syntax in the <a class="reference external" href="usage.html#configuration">configuration</a> file.</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="switch.CsSwitch.send_cmds">
+<span class="sig-name descname"><span class="pre">send_cmds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/switch.html#CsSwitch.send_cmds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switch.CsSwitch.send_cmds" title="Link to this definition"></a></dt>
+<dd><p>Sends commands distinguishing between configuration commands and show
+commands.
+This function is used by <a class="reference internal" href="#switch.CsSwitch.send_cmds_ba" title="switch.CsSwitch.send_cmds_ba"><code class="xref py py-class docutils literal notranslate"><span class="pre">switch.CsSwitch.send_cmds_ba()</span></code></a> and
+<a class="reference internal" href="#switch.CsSwitch.send_conf_cmds" title="switch.CsSwitch.send_conf_cmds"><code class="xref py py-class docutils literal notranslate"><span class="pre">switch.CsSwitch.send_conf_cmds()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cmd_set</strong> (<em>list</em>) – <p>List of dictionaries containing commands.
+Is built by <a class="reference internal" href="#switch.CsSwitch.split_into_sets" title="switch.CsSwitch.split_into_sets"><code class="xref py py-class docutils literal notranslate"><span class="pre">switch.CsSwitch.split_into_sets()</span></code></a>.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Example for huawei changing the privilege level.</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;special&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;cmd&#39;</span><span class="p">:</span> <span class="s1">&#39;local-user admin privilege level 15&#39;</span>
+            <span class="s1">&#39;expect&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">(</span><span class="s1">&#39;are your sure&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</p></li>
+<li><p><strong>type</strong> (<em>str</em>) – If <code class="docutils literal notranslate"><span class="pre">type</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> (default), configuration commands will be sent,
+show commands otherwise.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="switch.CsSwitch.send_cmds_ba">
+<span class="sig-name descname"><span class="pre">send_cmds_ba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ba</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/switch.html#CsSwitch.send_cmds_ba"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switch.CsSwitch.send_cmds_ba" title="Link to this definition"></a></dt>
+<dd><p>Send show commands.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ba</strong> (<em>str</em>) – can be <strong>after</strong> or <strong>before</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="switch.CsSwitch.send_conf_cmds">
+<span class="sig-name descname"><span class="pre">send_conf_cmds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/switch.html#CsSwitch.send_conf_cmds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switch.CsSwitch.send_conf_cmds" title="Link to this definition"></a></dt>
+<dd><p>Send configuration commands.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="switch.CsSwitch.split_into_sets">
+<span class="sig-name descname"><span class="pre">split_into_sets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmds</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/switch.html#CsSwitch.split_into_sets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switch.CsSwitch.split_into_sets" title="Link to this definition"></a></dt>
+<dd><p>Commands that require interaction are treated specially.
+Here they are recognized by their syntax which is explained in the
+<a class="reference external" href="usage.html#configuration">configuration</a>.</p>
+<p>Regular commands are packed into lists which are sent altogether.
+Commands that require interaction are stuffed in between and executed
+differently making it possible to react to questions asked
+by the switch.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="switch.CsSwitchError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">switch.</span></span><span class="sig-name descname"><span class="pre">CsSwitchError</span></span><a class="reference internal" href="_modules/switch.html#CsSwitchError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#switch.CsSwitchError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="credentials.html" class="btn btn-neutral float-left" title="credentials module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="utilities.html" class="btn btn-neutral float-right" title="utilities module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Albert Johannes Mendes.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

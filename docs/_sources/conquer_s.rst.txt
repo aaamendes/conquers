@@ -1,0 +1,7 @@
+conquer\_s module
+=================
+
+.. automodule:: conquer_s
+   :members:
+   :undoc-members:
+   :show-inheritance:

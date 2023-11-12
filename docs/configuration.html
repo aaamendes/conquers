@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>configuration module &mdash; conquers 0.1 (beta) documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/medecaj.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f6c902d1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="constants module" href="constants.html" />
+    <link rel="prev" title="collector module" href="collector.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            conquers
+              <img src="https://cdn.amendes.me/conquers/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">conquers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="collector.html">collector module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">configuration module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration.Config.config_file"><code class="docutils literal notranslate"><span class="pre">Config.config_file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration.Config.config_object"><code class="docutils literal notranslate"><span class="pre">Config.config_object</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration.Config.file_handle"><code class="docutils literal notranslate"><span class="pre">Config.file_handle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration.Config.file_extension"><code class="docutils literal notranslate"><span class="pre">Config.file_extension</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration.Config.valid_file_extensions"><code class="docutils literal notranslate"><span class="pre">Config.valid_file_extensions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration.Config.errors"><code class="docutils literal notranslate"><span class="pre">Config.errors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration.Config.required_keys"><code class="docutils literal notranslate"><span class="pre">Config.required_keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration.Config.check"><code class="docutils literal notranslate"><span class="pre">Config.check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration.Config.check_required_keys"><code class="docutils literal notranslate"><span class="pre">Config.check_required_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration.Config.parse"><code class="docutils literal notranslate"><span class="pre">Config.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration.Config.return_config"><code class="docutils literal notranslate"><span class="pre">Config.return_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">credentials module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch.html">switch module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">utilities module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">conquers</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">conquers</a></li>
+      <li class="breadcrumb-item active">configuration module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/configuration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-configuration">
+<span id="configuration-module"></span><h1>configuration module<a class="headerlink" href="#module-configuration" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="configuration.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">configuration.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/configuration.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#configuration.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class parses <strong>conquers</strong>’s configuration file, checks for errors and
+returns an object containing the configuration.</p>
+<p>The path to a yaml configuration file must be passed to the constructor.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="configuration.Config.config_file">
+<span class="sig-name descname"><span class="pre">config_file</span></span><a class="headerlink" href="#configuration.Config.config_file" title="Link to this definition"></a></dt>
+<dd><p>A relative or absolute path to the yaml configuration file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="configuration.Config.config_object">
+<span class="sig-name descname"><span class="pre">config_object</span></span><a class="headerlink" href="#configuration.Config.config_object" title="Link to this definition"></a></dt>
+<dd><p>The configuration as a python dicationary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="configuration.Config.file_handle">
+<span class="sig-name descname"><span class="pre">file_handle</span></span><a class="headerlink" href="#configuration.Config.file_handle" title="Link to this definition"></a></dt>
+<dd><p>The file handle used for the configuration file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="configuration.Config.file_extension">
+<span class="sig-name descname"><span class="pre">file_extension</span></span><a class="headerlink" href="#configuration.Config.file_extension" title="Link to this definition"></a></dt>
+<dd><p>The file exentsion used for                 the configuration file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="configuration.Config.valid_file_extensions">
+<span class="sig-name descname"><span class="pre">valid_file_extensions</span></span><a class="headerlink" href="#configuration.Config.valid_file_extensions" title="Link to this definition"></a></dt>
+<dd><p>File extensions allowed to use.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="configuration.Config.errors">
+<span class="sig-name descname"><span class="pre">errors</span></span><a class="headerlink" href="#configuration.Config.errors" title="Link to this definition"></a></dt>
+<dd><p>Errors are collected here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="configuration.Config.required_keys">
+<span class="sig-name descname"><span class="pre">required_keys</span></span><a class="headerlink" href="#configuration.Config.required_keys" title="Link to this definition"></a></dt>
+<dd><p>A list of keys that must be present                 in the configuration per group or host.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="configuration.Config.check">
+<span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/configuration.html#Config.check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#configuration.Config.check" title="Link to this definition"></a></dt>
+<dd><p>Checks if <a class="reference internal" href="#configuration.Config.config_file" title="configuration.Config.config_file"><code class="xref py py-class docutils literal notranslate"><span class="pre">config_file</span></code></a> exists and if it has a one of the
+<a class="reference internal" href="#configuration.Config.valid_file_extensions" title="configuration.Config.valid_file_extensions"><code class="xref py py-class docutils literal notranslate"><span class="pre">valid_file_extensions</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="configuration.Config.check_required_keys">
+<span class="sig-name descname"><span class="pre">check_required_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/configuration.html#Config.check_required_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#configuration.Config.check_required_keys" title="Link to this definition"></a></dt>
+<dd><div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>needs implementation</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="configuration.Config.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/configuration.html#Config.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#configuration.Config.parse" title="Link to this definition"></a></dt>
+<dd><p>Parses the configuration from <a class="reference internal" href="#configuration.Config.config_file" title="configuration.Config.config_file"><code class="xref py py-class docutils literal notranslate"><span class="pre">config_file</span></code></a>
+into <a class="reference internal" href="#configuration.Config.config_object" title="configuration.Config.config_object"><code class="xref py py-class docutils literal notranslate"><span class="pre">config_object</span></code></a>.
+Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if successful, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>either remove <code class="docutils literal notranslate"><span class="pre">.toml</span></code> or implement it</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="configuration.Config.return_config">
+<span class="sig-name descname"><span class="pre">return_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/configuration.html#Config.return_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#configuration.Config.return_config" title="Link to this definition"></a></dt>
+<dd><p>Returns <a class="reference internal" href="#configuration.Config.config_object" title="configuration.Config.config_object"><code class="xref py py-class docutils literal notranslate"><span class="pre">config_object</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="collector.html" class="btn btn-neutral float-left" title="collector module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="constants.html" class="btn btn-neutral float-right" title="constants module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Albert Johannes Mendes.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+cs\_collector module
+====================
+
+.. automodule:: cs_collector
+   :members:
+   :undoc-members:
+   :show-inheritance:

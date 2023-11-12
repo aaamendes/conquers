@@ -1,0 +1,7 @@
+cs\_config module
+=================
+
+.. automodule:: cs_config
+   :members:
+   :undoc-members:
+   :show-inheritance:
