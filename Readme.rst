@@ -15,7 +15,7 @@ The full documentation with video example can be found here `medecaj.github.io/c
 <https://medecaj.github.io/conquers/>`_.
 
 
-.. image:: https://cdn.amendes.me/conquers/tease.gif
+.. image:: https://cdn.amendes.me/conquers/teaser.gif
    :width: 1024
    :alt: conquers teaser
 
