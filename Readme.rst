@@ -7,6 +7,9 @@ program to do what its name implies.
 It makes use of the python `netmiko <https://github.com/ktbyers/netmiko>`_
 library to do its work.
 
+The full documentation with video example can be found here `medecaj.github.io/conquers/
+<https://medecaj.github.io/conquers/>`_.
+
 Usage
 =====
 
@@ -189,16 +192,3 @@ Configuration
             - cisco-core-2:
                 log_file: "/path/to/file.log"
 
-conquers in action
--------------------
-
-.. raw:: html
-
-    <video controls style="max-width:987px" poster="https://cdn.amendes.me/conquers/poster.svg">
-        <source src="https://cdn.amendes.me/conquers/example.mp4"
-        type="video/mp4" />
-    </video>
-
-
-Examples
---------
