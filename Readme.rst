@@ -1,4 +1,6 @@
-<img src="https://cdn.amendes.me/conquers/logo.svg" width=144>
+.. code-block:: html
+
+    <img src="https://cdn.amendes.me/conquers/logo.svg" width=144>
 
 conquers
 =========
