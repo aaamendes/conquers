@@ -17,10 +17,8 @@ The full documentation with video example can be found here `medecaj.github.io/c
 
 .. raw:: html
 
-   <embed>
-       <img src="https://cdn.amendes.me/conquers/teaser.gif" style="width:100%"
-       alt="conquers teaser">
-   </embed>
+    <img src="https://cdn.amendes.me/conquers/teaser.gif" style="width:100%"
+    alt="conquers teaser">
 
 
 Usage
