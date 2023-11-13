@@ -18,7 +18,7 @@ The full documentation with video example can be found here `medecaj.github.io/c
 .. raw:: html
 
     <img
-    src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmtsbXBleG01M2cwbG5lY3FpOXo0d3JobDdwb3ZidjEwZGo4cHRyZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tXL4FHPSnVJ0A/giphy.gif" style="width:100%"
+    src="https://cdn.amendes.me/conquers/teaser.gif" style="width:100%"
     alt="conquers teaser">
 
 
